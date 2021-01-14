@@ -1,0 +1,105 @@
+[2021-01-14 11:05:17,733] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.check_weekly 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 11:05:17,748] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.check_weekly 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 11:05:17,748] {taskinstance.py:880} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 11:05:17,748] {taskinstance.py:881} INFO - Starting attempt 1 of 4
+[2021-01-14 11:05:17,748] {taskinstance.py:882} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 11:05:17,753] {taskinstance.py:901} INFO - Executing <Task(ShortCircuitOperator): check_weekly> on 2021-01-13T00:30:00+00:00
+[2021-01-14 11:05:17,756] {standard_task_runner.py:54} INFO - Started process 12626 to run task
+[2021-01-14 11:05:17,778] {standard_task_runner.py:77} INFO - Running: ['airflow', 'run', 'test_daily_0030', 'check_weekly', '2021-01-13T00:30:00+00:00', '--job_id', '17', '--pool', 'default_pool', '--raw', '-sd', 'DAGS_FOLDER/test_daily_0030.py', '--cfg_path', '/var/folders/1c/xhkpty0142l7xwkrqtm3t9p80000gn/T/tmp8cvpcz72']
+[2021-01-14 11:05:17,779] {standard_task_runner.py:78} INFO - Job 17: Subtask check_weekly
+[2021-01-14 11:05:17,810] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: test_daily_0030.check_weekly 2021-01-13T00:30:00+00:00 [running]> 1.0.0.127.in-addr.arpa
+[2021-01-14 11:05:17,824] {taskinstance.py:1150} ERROR - check_weekly() got an unexpected keyword argument 'conf'
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 984, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 158, in execute
+    condition = super(ShortCircuitOperator, self).execute(context)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 113, in execute
+    return_value = self.execute_callable()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 118, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: check_weekly() got an unexpected keyword argument 'conf'
+[2021-01-14 11:05:17,825] {taskinstance.py:1194} INFO - Marking task as UP_FOR_RETRY. dag_id=test_daily_0030, task_id=check_weekly, execution_date=20210113T003000, start_date=20210114T020517, end_date=20210114T020517
+[2021-01-14 11:05:17,837] {configuration.py:373} WARNING - section/key [smtp/smtp_user] not found in config
+[2021-01-14 11:05:17,839] {configuration.py:373} WARNING - section/key [smtp/smtp_user] not found in config
+[2021-01-14 11:05:17,839] {taskinstance.py:1200} ERROR - Failed to send email to: ['wonji']
+[2021-01-14 11:05:17,840] {taskinstance.py:1201} ERROR - [Errno 61] Connection refused
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 984, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 158, in execute
+    condition = super(ShortCircuitOperator, self).execute(context)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 113, in execute
+    return_value = self.execute_callable()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 118, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: check_weekly() got an unexpected keyword argument 'conf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1473, in email_alert
+    send_email(self.task.email, subject, html_content)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 62, in send_email
+    mime_subtype=mime_subtype, mime_charset=mime_charset, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 108, in send_email_smtp
+    send_MIME_email(smtp_mail_from, recipients, msg, dryrun)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 127, in send_MIME_email
+    s = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) if SMTP_SSL else smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1198, in handle_failure
+    self.email_alert(error)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1475, in email_alert
+    send_email(self.task.email, subject, html_content_err)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 62, in send_email
+    mime_subtype=mime_subtype, mime_charset=mime_charset, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 108, in send_email_smtp
+    send_MIME_email(smtp_mail_from, recipients, msg, dryrun)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 127, in send_MIME_email
+    s = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) if SMTP_SSL else smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+[2021-01-14 11:05:22,727] {local_task_job.py:102} INFO - Task exited with return code 1
+[2021-01-14 13:17:31,467] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.check_weekly 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 13:17:31,479] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.check_weekly 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 13:17:31,479] {taskinstance.py:880} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 13:17:31,479] {taskinstance.py:881} INFO - Starting attempt 1 of 3
+[2021-01-14 13:17:31,479] {taskinstance.py:882} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 13:17:31,484] {taskinstance.py:901} INFO - Executing <Task(ShortCircuitOperator): check_weekly> on 2021-01-13T00:30:00+00:00
+[2021-01-14 13:17:31,488] {standard_task_runner.py:54} INFO - Started process 25460 to run task
+[2021-01-14 13:17:31,509] {standard_task_runner.py:77} INFO - Running: ['airflow', 'run', 'test_daily_0030', 'check_weekly', '2021-01-13T00:30:00+00:00', '--job_id', '38', '--pool', 'default_pool', '--raw', '-sd', 'DAGS_FOLDER/test_daily_0030.py', '--cfg_path', '/var/folders/1c/xhkpty0142l7xwkrqtm3t9p80000gn/T/tmpdcrvxsic']
+[2021-01-14 13:17:31,510] {standard_task_runner.py:78} INFO - Job 38: Subtask check_weekly
+[2021-01-14 13:17:31,542] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: test_daily_0030.check_weekly 2021-01-13T00:30:00+00:00 [running]> 1.0.0.127.in-addr.arpa
+[2021-01-14 13:17:31,562] {python_operator.py:114} INFO - Done. Returned value was: False
+[2021-01-14 13:17:31,562] {python_operator.py:159} INFO - Condition result is False
+[2021-01-14 13:17:31,562] {python_operator.py:165} INFO - Skipping downstream tasks...
+[2021-01-14 13:17:31,562] {python_operator.py:173} INFO - Done.
+[2021-01-14 13:17:31,566] {taskinstance.py:1070} INFO - Marking task as SUCCESS.dag_id=test_daily_0030, task_id=check_weekly, execution_date=20210113T003000, start_date=20210114T041731, end_date=20210114T041731
+[2021-01-14 13:17:36,456] {local_task_job.py:102} INFO - Task exited with return code 0

@@ -1,0 +1,110 @@
+[2021-01-14 11:18:14,482] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.hello_task 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 11:18:14,501] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.hello_task 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 11:18:14,501] {taskinstance.py:880} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 11:18:14,501] {taskinstance.py:881} INFO - Starting attempt 1 of 4
+[2021-01-14 11:18:14,502] {taskinstance.py:882} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 11:18:14,506] {taskinstance.py:901} INFO - Executing <Task(PythonOperator): hello_task> on 2021-01-13T00:30:00+00:00
+[2021-01-14 11:18:14,509] {standard_task_runner.py:54} INFO - Started process 13830 to run task
+[2021-01-14 11:18:14,528] {standard_task_runner.py:77} INFO - Running: ['airflow', 'run', 'test_daily_0030', 'hello_task', '2021-01-13T00:30:00+00:00', '--job_id', '29', '--pool', 'default_pool', '--raw', '-sd', 'DAGS_FOLDER/test_daily_0030.py', '--cfg_path', '/var/folders/1c/xhkpty0142l7xwkrqtm3t9p80000gn/T/tmp9ugfowo7']
+[2021-01-14 11:18:14,529] {standard_task_runner.py:78} INFO - Job 29: Subtask hello_task
+[2021-01-14 11:18:14,559] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: test_daily_0030.hello_task 2021-01-13T00:30:00+00:00 [running]> 1.0.0.127.in-addr.arpa
+[2021-01-14 11:18:14,571] {logging_mixin.py:112} INFO - {'type': 'aa'}
+[2021-01-14 11:18:14,571] {logging_mixin.py:112} INFO - execution_date: 2021-01-13T00:30:00+00:00
+[2021-01-14 11:18:14,572] {logging_mixin.py:112} INFO - execution_date(local_tz):2021-01-13T09:30:00+09:00
+[2021-01-14 11:18:14,572] {logging_mixin.py:112} INFO - ds: 2021-01-13
+[2021-01-14 11:18:14,572] {logging_mixin.py:112} INFO - ds(local_tz):2021-01-13
+[2021-01-14 11:18:14,572] {logging_mixin.py:112} INFO - yesterday_ds: 2021-01-12
+[2021-01-14 11:18:14,573] {logging_mixin.py:112} INFO - yesterday_ds(local_tz):2021-01-12
+[2021-01-14 11:18:14,573] {logging_mixin.py:112} INFO - yesterday_ds_nodasy(local_tz):20210112
+[2021-01-14 11:18:14,573] {logging_mixin.py:112} INFO - tomorrow_ds: 2021-01-14
+[2021-01-14 11:18:14,573] {logging_mixin.py:112} INFO - tomorrow_ds(local_tz):2021-01-14
+[2021-01-14 11:18:14,574] {logging_mixin.py:112} INFO - ds_nodash: 20210113
+[2021-01-14 11:18:14,574] {logging_mixin.py:112} INFO - ds_nodash(local_tz): 20210113
+[2021-01-14 11:18:14,574] {python_operator.py:114} INFO - Done. Returned value was: Hello world!
+[2021-01-14 11:18:14,582] {taskinstance.py:1070} INFO - Marking task as SUCCESS.dag_id=test_daily_0030, task_id=hello_task, execution_date=20210113T003000, start_date=20210114T021814, end_date=20210114T021814
+[2021-01-14 11:18:19,464] {local_task_job.py:102} INFO - Task exited with return code 0
+[2021-01-14 13:30:25,745] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.hello_task 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 13:30:25,760] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.hello_task 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 13:30:25,761] {taskinstance.py:880} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 13:30:25,761] {taskinstance.py:881} INFO - Starting attempt 1 of 3
+[2021-01-14 13:30:25,761] {taskinstance.py:882} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 13:30:25,765] {taskinstance.py:901} INFO - Executing <Task(PythonOperator): hello_task> on 2021-01-13T00:30:00+00:00
+[2021-01-14 13:30:25,769] {standard_task_runner.py:54} INFO - Started process 27176 to run task
+[2021-01-14 13:30:25,793] {standard_task_runner.py:77} INFO - Running: ['airflow', 'run', 'test_daily_0030', 'hello_task', '2021-01-13T00:30:00+00:00', '--job_id', '47', '--pool', 'default_pool', '--raw', '-sd', 'DAGS_FOLDER/test_daily_0030.py', '--cfg_path', '/var/folders/1c/xhkpty0142l7xwkrqtm3t9p80000gn/T/tmpxgtiapcq']
+[2021-01-14 13:30:25,794] {standard_task_runner.py:78} INFO - Job 47: Subtask hello_task
+[2021-01-14 13:30:25,827] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: test_daily_0030.hello_task 2021-01-13T00:30:00+00:00 [running]> 1.0.0.127.in-addr.arpa
+[2021-01-14 13:30:25,844] {taskinstance.py:1150} ERROR - print_dt() got an unexpected keyword argument 'conf'
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 984, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 113, in execute
+    return_value = self.execute_callable()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 118, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: print_dt() got an unexpected keyword argument 'conf'
+[2021-01-14 13:30:25,846] {taskinstance.py:1194} INFO - Marking task as UP_FOR_RETRY. dag_id=test_daily_0030, task_id=hello_task, execution_date=20210113T003000, start_date=20210114T043025, end_date=20210114T043025
+[2021-01-14 13:30:25,858] {configuration.py:373} WARNING - section/key [smtp/smtp_user] not found in config
+[2021-01-14 13:30:25,859] {configuration.py:373} WARNING - section/key [smtp/smtp_user] not found in config
+[2021-01-14 13:30:25,860] {taskinstance.py:1200} ERROR - Failed to send email to: ['wonji0129@naver.com']
+[2021-01-14 13:30:25,860] {taskinstance.py:1201} ERROR - [Errno 61] Connection refused
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 984, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 113, in execute
+    return_value = self.execute_callable()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/operators/python_operator.py", line 118, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: print_dt() got an unexpected keyword argument 'conf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1473, in email_alert
+    send_email(self.task.email, subject, html_content)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 62, in send_email
+    mime_subtype=mime_subtype, mime_charset=mime_charset, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 108, in send_email_smtp
+    send_MIME_email(smtp_mail_from, recipients, msg, dryrun)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 127, in send_MIME_email
+    s = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) if SMTP_SSL else smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1198, in handle_failure
+    self.email_alert(error)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1475, in email_alert
+    send_email(self.task.email, subject, html_content_err)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 62, in send_email
+    mime_subtype=mime_subtype, mime_charset=mime_charset, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 108, in send_email_smtp
+    send_MIME_email(smtp_mail_from, recipients, msg, dryrun)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 127, in send_MIME_email
+    s = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) if SMTP_SSL else smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+[2021-01-14 13:30:30,737] {local_task_job.py:102} INFO - Task exited with return code 1

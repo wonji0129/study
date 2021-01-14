@@ -1,0 +1,2 @@
+[2021-01-14 11:00:55,222] {taskinstance.py:664} INFO - Dependencies not met for <TaskInstance: test_daily_0030.check_monthly 2021-01-07T00:30:00+00:00 [queued]>, dependency 'Previous Dagrun State' FAILED: depends_on_past is true for this task, but the previous task instance <TaskInstance: test_daily_0030.check_monthly 2021-01-06 00:30:00+00:00 [None]> is in the state 'None' which is not a successful state.
+[2021-01-14 11:00:55,225] {local_task_job.py:90} INFO - Task is not able to be run

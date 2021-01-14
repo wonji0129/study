@@ -1,0 +1,55 @@
+/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/configuration.py:761: DeprecationWarning: You have two airflow.cfg files: /Users/wonji/airflow/airflow.cfg and /Users/wonji/WJ/study/study_airflow/airflow.cfg. Airflow used to look at ~/airflow/airflow.cfg, even when AIRFLOW_HOME was set to a different value. Airflow will now only read /Users/wonji/WJ/study/study_airflow/airflow.cfg, and you should remove the other file
+  category=DeprecationWarning,
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_common.py", line 447, in wrapper
+    ret = self._cache[fun]
+AttributeError: _cache
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_psosx.py", line 344, in wrapper
+    return fun(self, *args, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_common.py", line 450, in wrapper
+    return fun(self)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_psosx.py", line 397, in _get_kinfo_proc
+    ret = cext.proc_kinfo_oneshot(self.pid)
+ProcessLookupError: [Errno 3] assume no such process (originated from sysctl (len == 0))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/__init__.py", line 354, in _init
+    self.create_time()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/__init__.py", line 710, in create_time
+    self._create_time = self._proc.create_time()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_psosx.py", line 344, in wrapper
+    return fun(self, *args, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_psosx.py", line 500, in create_time
+    return self._get_kinfo_proc()[kinfo_proc_map['ctime']]
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_psosx.py", line 349, in wrapper
+    raise NoSuchProcess(self.pid, self._name)
+psutil.NoSuchProcess: psutil.NoSuchProcess process no longer exists (pid=6501)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/test_airflow/bin/airflow", line 37, in <module>
+    args.func(args)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/cli.py", line 76, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/bin/cli.py", line 1172, in webserver
+    monitor_gunicorn(gunicorn_master_proc.pid)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/bin/cli.py", line 1141, in monitor_gunicorn
+    'webserver', 'reload_on_plugin_change', fallback=False
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/bin/cli.py", line 948, in start
+    self._check_workers()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/bin/cli.py", line 993, in _check_workers
+    num_workers_running = self._get_num_workers_running()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/bin/cli.py", line 878, in _get_num_workers_running
+    workers = psutil.Process(self.gunicorn_master_proc.pid).children()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/__init__.py", line 326, in __init__
+    self._init(pid)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/__init__.py", line 367, in _init
+    raise NoSuchProcess(pid, None, msg)
+psutil.NoSuchProcess: psutil.NoSuchProcess no process found with pid 6501

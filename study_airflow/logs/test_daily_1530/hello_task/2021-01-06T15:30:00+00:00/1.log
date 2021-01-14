@@ -1,0 +1,27 @@
+[2021-01-14 10:57:58,533] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_1530.hello_task 2021-01-06T15:30:00+00:00 [queued]>
+[2021-01-14 10:57:58,542] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_1530.hello_task 2021-01-06T15:30:00+00:00 [queued]>
+[2021-01-14 10:57:58,542] {taskinstance.py:880} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 10:57:58,542] {taskinstance.py:881} INFO - Starting attempt 1 of 4
+[2021-01-14 10:57:58,542] {taskinstance.py:882} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 10:57:58,548] {taskinstance.py:901} INFO - Executing <Task(PythonOperator): hello_task> on 2021-01-06T15:30:00+00:00
+[2021-01-14 10:57:58,552] {standard_task_runner.py:54} INFO - Started process 11876 to run task
+[2021-01-14 10:57:58,574] {standard_task_runner.py:77} INFO - Running: ['airflow', 'run', 'test_daily_1530', 'hello_task', '2021-01-06T15:30:00+00:00', '--job_id', '3', '--pool', 'default_pool', '--raw', '-sd', 'DAGS_FOLDER/test_daily_1530.py', '--cfg_path', '/var/folders/1c/xhkpty0142l7xwkrqtm3t9p80000gn/T/tmp4g_d0w3a']
+[2021-01-14 10:57:58,577] {standard_task_runner.py:78} INFO - Job 3: Subtask hello_task
+[2021-01-14 10:57:58,607] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: test_daily_1530.hello_task 2021-01-06T15:30:00+00:00 [running]> iwonjiui-macbookpro.local
+[2021-01-14 10:57:58,623] {logging_mixin.py:112} INFO - {'type': 'aa'}
+[2021-01-14 10:57:58,623] {logging_mixin.py:112} INFO - execution_date: 2021-01-06T15:30:00+00:00
+[2021-01-14 10:57:58,623] {logging_mixin.py:112} INFO - execution_date(local_tz):2021-01-07T00:30:00+09:00
+[2021-01-14 10:57:58,623] {logging_mixin.py:112} INFO - ds: 2021-01-06
+[2021-01-14 10:57:58,624] {logging_mixin.py:112} INFO - ds(local_tz):2021-01-07
+[2021-01-14 10:57:58,624] {logging_mixin.py:112} INFO - yesterday_ds: 2021-01-05
+[2021-01-14 10:57:58,624] {logging_mixin.py:112} INFO - yesterday_ds(local_tz):2021-01-06
+[2021-01-14 10:57:58,625] {logging_mixin.py:112} INFO - yesterday_ds_nodasy(local_tz):20210106
+[2021-01-14 10:57:58,625] {logging_mixin.py:112} INFO - tomorrow_ds: 2021-01-07
+[2021-01-14 10:57:58,625] {logging_mixin.py:112} INFO - tomorrow_ds(local_tz):2021-01-08
+[2021-01-14 10:57:58,625] {logging_mixin.py:112} INFO - ds_nodash: 20210106
+[2021-01-14 10:57:58,625] {logging_mixin.py:112} INFO - ds_nodash(local_tz): 20210107
+[2021-01-14 10:57:58,626] {python_operator.py:114} INFO - Done. Returned value was: Hello world!
+[2021-01-14 10:57:58,634] {taskinstance.py:1070} INFO - Marking task as SUCCESS.dag_id=test_daily_1530, task_id=hello_task, execution_date=20210106T153000, start_date=20210114T015758, end_date=20210114T015758
+[2021-01-14 10:58:03,527] {local_task_job.py:102} INFO - Task exited with return code 0

@@ -1,0 +1,88 @@
+[2021-01-14 12:00:38,865] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 12:00:38,884] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 12:00:38,884] {taskinstance.py:880} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 12:00:38,884] {taskinstance.py:881} INFO - Starting attempt 7 of 9
+[2021-01-14 12:00:38,884] {taskinstance.py:882} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 12:00:38,889] {taskinstance.py:901} INFO - Executing <Task(ExternalTaskSensor): wait_daily> on 2021-01-13T00:30:00+00:00
+[2021-01-14 12:00:38,893] {standard_task_runner.py:54} INFO - Started process 18805 to run task
+[2021-01-14 12:00:38,916] {standard_task_runner.py:77} INFO - Running: ['airflow', 'run', 'test_daily_0030', 'wait_daily', '2021-01-13T00:30:00+00:00', '--job_id', '59', '--pool', 'default_pool', '--raw', '-sd', 'DAGS_FOLDER/test_daily_0030.py', '--cfg_path', '/var/folders/1c/xhkpty0142l7xwkrqtm3t9p80000gn/T/tmpv0ws_730']
+[2021-01-14 12:00:38,917] {standard_task_runner.py:78} INFO - Job 59: Subtask wait_daily
+[2021-01-14 12:00:38,948] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [running]> iwonjiui-macbookpro.local
+[2021-01-14 12:00:38,963] {external_task_sensor.py:117} INFO - Poking for test_daily_0015.hello_task on 2021-01-13T00:30:00+00:00 ... 
+[2021-01-14 12:00:38,967] {dagbag.py:417} INFO - Filling up the DagBag from /Users/wonji/WJ/study/study_airflow/dags/test_daily_0015.py
+[2021-01-14 12:00:43,856] {local_task_job.py:145} WARNING - The recorded hostname iwonjiui-macbookpro.local does not match this instance's hostname 1.0.0.127.in-addr.arpa
+[2021-01-14 12:00:43,864] {helpers.py:325} INFO - Sending Signals.SIGTERM to GPID 18805
+[2021-01-14 12:00:43,865] {taskinstance.py:955} ERROR - Received SIGTERM. Terminating subprocesses.
+[2021-01-14 12:00:43,867] {taskinstance.py:1150} ERROR - Task received SIGTERM signal
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 984, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/sensors/base_sensor_operator.py", line 122, in execute
+    sleep(self.poke_interval)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 957, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2021-01-14 12:00:43,869] {taskinstance.py:1194} INFO - Marking task as UP_FOR_RETRY. dag_id=test_daily_0030, task_id=wait_daily, execution_date=20210113T003000, start_date=20210114T030038, end_date=20210114T030043
+[2021-01-14 12:00:43,880] {configuration.py:373} WARNING - section/key [smtp/smtp_user] not found in config
+[2021-01-14 12:00:43,882] {configuration.py:373} WARNING - section/key [smtp/smtp_user] not found in config
+[2021-01-14 12:00:43,883] {taskinstance.py:1200} ERROR - Failed to send email to: ['wonji0129@naver.com']
+[2021-01-14 12:00:43,883] {taskinstance.py:1201} ERROR - [Errno 61] Connection refused
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 984, in _run_raw_task
+    result = task_copy.execute(context=context)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/sensors/base_sensor_operator.py", line 122, in execute
+    sleep(self.poke_interval)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 957, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1473, in email_alert
+    send_email(self.task.email, subject, html_content)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 62, in send_email
+    mime_subtype=mime_subtype, mime_charset=mime_charset, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 108, in send_email_smtp
+    send_MIME_email(smtp_mail_from, recipients, msg, dryrun)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 127, in send_MIME_email
+    s = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) if SMTP_SSL else smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1198, in handle_failure
+    self.email_alert(error)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1475, in email_alert
+    send_email(self.task.email, subject, html_content_err)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 62, in send_email
+    mime_subtype=mime_subtype, mime_charset=mime_charset, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 108, in send_email_smtp
+    send_MIME_email(smtp_mail_from, recipients, msg, dryrun)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/email.py", line 127, in send_MIME_email
+    s = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) if SMTP_SSL else smtplib.SMTP(SMTP_HOST, SMTP_PORT)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/Users/wonji/.pyenv/versions/3.7.7/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+[2021-01-14 12:00:43,895] {helpers.py:291} INFO - Process psutil.Process(pid=18805, status='terminated', exitcode=1, started='12:00:38') (18805) terminated with exit code 1

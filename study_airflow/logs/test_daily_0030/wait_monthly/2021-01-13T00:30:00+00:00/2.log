@@ -1,0 +1,2 @@
+[2021-01-14 11:41:10,211] {taskinstance.py:664} INFO - Dependencies not met for <TaskInstance: test_daily_0030.wait_monthly 2021-01-13T00:30:00+00:00 [None]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_tasks_state={'total': 1, 'successes': 0, 'skipped': 0, 'failed': 0, 'upstream_failed': 0, 'done': 0}, upstream_task_ids={'check_monthly'}
+[2021-01-14 11:41:10,212] {local_task_job.py:90} INFO - Task is not able to be run

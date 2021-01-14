@@ -1,0 +1,21 @@
+[2021-01-14 12:08:05,158] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 12:08:05,175] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 12:08:05,176] {taskinstance.py:880} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 12:08:05,176] {taskinstance.py:881} INFO - Starting attempt 9 of 11
+[2021-01-14 12:08:05,176] {taskinstance.py:882} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 12:08:05,180] {taskinstance.py:901} INFO - Executing <Task(ExternalTaskSensor): wait_daily> on 2021-01-13T00:30:00+00:00
+[2021-01-14 12:08:05,184] {standard_task_runner.py:54} INFO - Started process 19499 to run task
+[2021-01-14 12:08:05,204] {standard_task_runner.py:77} INFO - Running: ['airflow', 'run', 'test_daily_0030', 'wait_daily', '2021-01-13T00:30:00+00:00', '--job_id', '62', '--pool', 'default_pool', '--raw', '-sd', 'DAGS_FOLDER/test_daily_0030.py', '--cfg_path', '/var/folders/1c/xhkpty0142l7xwkrqtm3t9p80000gn/T/tmp8u3eiry5']
+[2021-01-14 12:08:05,205] {standard_task_runner.py:78} INFO - Job 62: Subtask wait_daily
+[2021-01-14 12:08:05,231] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [running]> 1.0.0.127.in-addr.arpa
+[2021-01-14 12:08:05,243] {external_task_sensor.py:117} INFO - Poking for test_daily_0015.hello_task on 2021-01-13T00:30:00+00:00 ... 
+[2021-01-14 12:09:05,247] {external_task_sensor.py:117} INFO - Poking for test_daily_0015.hello_task on 2021-01-13T00:30:00+00:00 ... 
+[2021-01-14 12:10:05,255] {external_task_sensor.py:117} INFO - Poking for test_daily_0015.hello_task on 2021-01-13T00:30:00+00:00 ... 
+[2021-01-14 12:11:05,261] {external_task_sensor.py:117} INFO - Poking for test_daily_0015.hello_task on 2021-01-13T00:30:00+00:00 ... 
+[2021-01-14 12:11:20,370] {local_task_job.py:159} WARNING - State of this instance has been externally set to success. Taking the poison pill.
+[2021-01-14 12:11:20,377] {helpers.py:325} INFO - Sending Signals.SIGTERM to GPID 19499
+[2021-01-14 12:11:20,377] {taskinstance.py:955} ERROR - Received SIGTERM. Terminating subprocesses.
+[2021-01-14 12:11:20,384] {helpers.py:291} INFO - Process psutil.Process(pid=19499, status='terminated', exitcode=0, started='12:08:05') (19499) terminated with exit code 0
+[2021-01-14 12:11:20,385] {local_task_job.py:102} INFO - Task exited with return code 0

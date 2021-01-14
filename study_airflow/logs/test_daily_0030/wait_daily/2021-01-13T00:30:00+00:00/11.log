@@ -1,0 +1,17 @@
+[2021-01-14 12:47:48,212] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 12:47:48,227] {taskinstance.py:670} INFO - Dependencies all met for <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [queued]>
+[2021-01-14 12:47:48,227] {taskinstance.py:880} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 12:47:48,227] {taskinstance.py:881} INFO - Starting attempt 11 of 13
+[2021-01-14 12:47:48,227] {taskinstance.py:882} INFO - 
+--------------------------------------------------------------------------------
+[2021-01-14 12:47:48,233] {taskinstance.py:901} INFO - Executing <Task(ExternalTaskSensor): wait_daily> on 2021-01-13T00:30:00+00:00
+[2021-01-14 12:47:48,236] {standard_task_runner.py:54} INFO - Started process 22899 to run task
+[2021-01-14 12:47:48,258] {standard_task_runner.py:77} INFO - Running: ['airflow', 'run', 'test_daily_0030', 'wait_daily', '2021-01-13T00:30:00+00:00', '--job_id', '66', '--pool', 'default_pool', '--raw', '-sd', 'DAGS_FOLDER/test_daily_0030.py', '--cfg_path', '/var/folders/1c/xhkpty0142l7xwkrqtm3t9p80000gn/T/tmpplbso4l9']
+[2021-01-14 12:47:48,259] {standard_task_runner.py:78} INFO - Job 66: Subtask wait_daily
+[2021-01-14 12:47:48,289] {logging_mixin.py:112} INFO - Running %s on host %s <TaskInstance: test_daily_0030.wait_daily 2021-01-13T00:30:00+00:00 [running]> 1.0.0.127.in-addr.arpa
+[2021-01-14 12:47:48,303] {external_task_sensor.py:117} INFO - Poking for test_daily_0015.hello_task on 2021-01-13T00:15:00+00:00 ... 
+[2021-01-14 12:47:48,306] {dagbag.py:417} INFO - Filling up the DagBag from /Users/wonji/WJ/study/study_airflow/dags/test_daily_0015.py
+[2021-01-14 12:47:48,312] {base_sensor_operator.py:123} INFO - Success criteria met. Exiting.
+[2021-01-14 12:47:48,315] {taskinstance.py:1070} INFO - Marking task as SUCCESS.dag_id=test_daily_0030, task_id=wait_daily, execution_date=20210113T003000, start_date=20210114T034748, end_date=20210114T034748
+[2021-01-14 12:47:53,203] {local_task_job.py:102} INFO - Task exited with return code 0
