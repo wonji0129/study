@@ -1,6 +1,7 @@
 # wj
-*.pb
+tensorflow_tutorial/*.pb
 /variables/
+tensorflow_tutorial/*.png
 
 # Editors
 .vscode/
