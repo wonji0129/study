@@ -1,6 +1,9 @@
-/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/configuration.py:761: DeprecationWarning: You have two airflow.cfg files: /Users/wonji/airflow/airflow.cfg and /Users/wonji/WJ/study/study_airflow/airflow.cfg. Airflow used to look at ~/airflow/airflow.cfg, even when AIRFLOW_HOME was set to a different value. Airflow will now only read /Users/wonji/WJ/study/study_airflow/airflow.cfg, and you should remove the other file
-  category=DeprecationWarning,
 Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/lockfile/pidlockfile.py", line 77, in acquire
+    write_pid_to_pidfile(self.path)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/lockfile/pidlockfile.py", line 161, in write_pid_to_pidfile
+    pidfile_fd = os.open(pidfile_path, open_flags, open_mode)
+FileExistsError: [Errno 17] File exists: '/Users/wonji/WJ/study/study_airfloTraceback (most recent call last):
   File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_common.py", line 447, in wrapper
     ret = self._cache[fun]
 AttributeError: _cache
@@ -29,7 +32,7 @@ Traceback (most recent call last):
     return self._get_kinfo_proc()[kinfo_proc_map['ctime']]
   File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/_psosx.py", line 349, in wrapper
     raise NoSuchProcess(self.pid, self._name)
-psutil.NoSuchProcess: psutil.NoSuchProcess process no longer exists (pid=6501)
+psutil.NoSuchProcess: psutil.NoSuchProcess process no longer exists (pid=7001)
 
 During handling of the above exception, another exception occurred:
 
@@ -52,4 +55,4 @@ Traceback (most recent call last):
     self._init(pid)
   File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/psutil/__init__.py", line 367, in _init
     raise NoSuchProcess(pid, None, msg)
-psutil.NoSuchProcess: psutil.NoSuchProcess no process found with pid 6501
+psutil.NoSuchProcess: psutil.NoSuchProcess no process found with pid 7001

@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/lockfile/pidlockfile.py", line 77, in acquire
+    write_pid_to_pidfile(self.path)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/lockfile/pidlockfile.py", line 161, in write_pid_to_pidfile
+    pidfile_fd = os.open(pidfile_path, open_flags, open_mode)
+FileExistsError: [Errno 17] File exists: '/Users/wonji/WJ/study/study_airflow/airflow-scheduler.pid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wonji/.pyenv/versions/test_airflow/bin/airflow", line 37, in <module>
+    args.func(args)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/utils/cli.py", line 76, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/airflow/bin/cli.py", line 1212, in scheduler
+    with ctx:
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/daemon/daemon.py", line 389, in __enter__
+    self.open()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/daemon/daemon.py", line 381, in open
+    self.pidfile.__enter__()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/lockfile/__init__.py", line 197, in __enter__
+    self.acquire()
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/daemon/pidfile.py", line 57, in acquire
+    super(TimeoutPIDLockFile, self).acquire(timeout, *args, **kwargs)
+  File "/Users/wonji/.pyenv/versions/3.7.7/envs/test_airflow/lib/python3.7/site-packages/lockfile/pidlockfile.py", line 88, in acquire
+    self.path)
+lockfile.AlreadyLocked: /Users/wonji/WJ/study/study_airflow/airflow-scheduler.pid is already locked

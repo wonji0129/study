@@ -1,1 +1,3 @@
 2021-01-14 17:00:13,538 ERROR - [0 / 0] Some workers seem to have died and gunicorn did not restart them as expected
+2021-03-12 13:58:55,352 ERROR - [0 / 0] Some workers seem to have died and gunicorn did not restart them as expected
+2021-03-16 12:18:36,052 ERROR - [0 / 0] Some workers seem to have died and gunicorn did not restart them as expected

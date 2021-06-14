@@ -1,67 +1,49 @@
 import logging
 from datetime import datetime
 from datetime import timedelta
-from airflow.operators.python_operator import PythonOperator
-from airflow.operators.dummy_operator import DummyOperator
+
 import pendulum
 from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from airflow.operators.bash_operator import BashOperator
+from airflow.operators.dummy_operator import DummyOperator
 
 log = logging.getLogger(__name__)
 
 local_tz = pendulum.timezone("Asia/Seoul")
 
+def return_list(**kwargs):
+    return ['a', 'b']
+
 # dag init
 default_args = {
     'owner': 'wonji',
-    'start_date': datetime(2021, 1, 6),
+    'start_date': datetime(2021, 1, 1),
     'depends_on_past': True,
-    'email': ['wonji'],
     'retries': 3,
     'retry_delay': timedelta(minutes=2),
 }
 
-dag_id = 'test_daily_0015'
 dag = DAG(
-    dag_id,
+    dag_id='test_daily_0015',
     default_args=default_args,
-    # 로컬타임 기준 매일 24시 30분, 1월 13일엔 12일(UTC+0) 기준으로 돌게됨
-    schedule_interval='15 0 * * *',
-    catchup=False
+    catchup=False,
+    schedule_interval='30 0 * * 1'
 )
 
-
-def print_hello(**kwargs):
-    print(kwargs['params'])
-    print("execution_date: " + str(kwargs["execution_date"]))
-    local_exec_date = local_tz.convert(kwargs["execution_date"])
-    print("execution_date(local_tz):" + str(local_exec_date))
-
-    print("ds: " + str(kwargs['ds']))
-    print("ds(local_tz):" + str(local_exec_date.date()))
-
-    print("yesterday_ds: " + str(kwargs['yesterday_ds']))
-    print("yesterday_ds(local_tz):" +
-          str(local_exec_date.date() + timedelta(days=-1)))
-    print("yesterday_ds_nodasy(local_tz):" +
-          (local_exec_date.date() + timedelta(days=-1)).strftime("%Y%m%d"))
-
-    print("tomorrow_ds: " + str(kwargs['tomorrow_ds']))
-    print("tomorrow_ds(local_tz):" +
-          str(local_exec_date.date() + timedelta(days=1)))
-
-    print("ds_nodash: " + str(kwargs['ds_nodash']))
-    print("ds_nodash(local_tz): " + local_exec_date.date().strftime("%Y%m%d"))
-
-    return 'Hello world!'
-
-
 # task init
-hello_operator = PythonOperator(task_id='hello_task',
-                                python_callable=print_hello,
-                                provide_context=True,
-                                params={'type': 'aa'},
-                                dag=dag)
+dummy_task = DummyOperator(task_id='dummy_task1', retries=0, dag=dag)
+return_list = PythonOperator(
+    task_id='return_list',
+    python_callable=return_list,
+    dag=dag
+    )
 
-start = DummyOperator(task_id='start', dag=dag)
+print_xcom = BashOperator(
+    task_id='print_xcom',
+    bash_command="echo {{ task_instance.xcom_pull(task_ids='return_list') }}",
+    dag=dag
+    )
 
-start >> hello_operator
+dummy_task >> return_list >> print_xcom
+
